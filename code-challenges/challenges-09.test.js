@@ -75,7 +75,7 @@ const updateNumbers = (obj) => {
   let updatedNumbers = Object.keys(obj).map(function (key) {
     return [String(key), obj[key]];
   })
-;return updatedNumbers; 
+;return updatedNumbers;
 };
 
 
