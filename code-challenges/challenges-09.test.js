@@ -70,12 +70,18 @@ HR has asked you to change the data to make it easier to print so that it looks 
 
 ------------------------------------------------------------------------------------------------ */
 
+
 const updateNumbers = (obj) => {
   // Solution code here...
-  let updatedNumbers = Object.keys(obj).map(function (key) {
-    return [String(key), obj[key]];
-  })
-;return updatedNumbers; 
+
+  const names = Object.keys(obj);
+  const numbers = Object.values(obj);
+  const updateArray =[];
+  for(let n = 0; n < numbers.length; n ++){
+    updateArray.push(names[n] + ': ' + numbers[n]);
+  }
+  return updateArray;
+
 };
 
 
@@ -129,11 +135,27 @@ const characters = [
   },
 ];
 
+// const getHouses = (arr) => {
+//   let houses = [];
+ 
+//   for(leti=0; i<arr.length; i++){
+//      const key = Object.keys(arr[i]);
+//      console.log(key);
+//   }
+  
+//   console.log(arr);
+//   // Solution code here...
+//   return houses;
+// };
 const getHouses = (arr) => {
   let houses = [];
   // Solution code here...
+  for(let home of arr){
+    houses.push(home.house);
+  }
   return houses;
 };
+
 
 /*------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -149,7 +171,9 @@ hasChildrenValues(characters, 'Sansa') will return false
 
 const hasChildrenValues = (arr, character) => {
   // Solution code here...
-
+  const newArray = Object.values(arr);
+  let kids = newArray.find((kidObj) => kidObj.name === character);
+  return kids.children;
 };
 
 /* ------------------------------------------------------------------------------------------------
