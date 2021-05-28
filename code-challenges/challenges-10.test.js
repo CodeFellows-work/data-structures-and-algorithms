@@ -8,14 +8,18 @@ Write a function named returnTen, takes in a string and uses split and splice to
 ------------------------------------------------------------------------------------------------ */
 
 function returnTen(str){
-  let newArray =  str.split('');
-  // Solution code here...
-  if(newArray.length > 9){ 
-    newArray.splice(0,1);
-  }
-
+  let newArray = [];
+  newArray = str.split('');
+  newArray.splice(0, newArray.length - 10);
   return newArray;
 }
+// let newArray =  str.split('');
+// // Solution code here...
+// if(newArray.length > 9){
+//   newArray.splice(0,1);
+// }
+
+// return newArray;
 
 
 /* ------------------------------------------------------------------------------------------------
@@ -34,15 +38,19 @@ For example:
 return: 23
 ------------------------------------------------------------------------------------------------ */
 const findMax = (matrix) => {
-  // Solution code here...
-  for(let i = 0; matrix.length; i++){
-    for(let j=0; matrix[i].length; j ++){
-      let max = matrix[i].reduce(function(a,b) {
-        return Math.max(a,b);
-      });
-      return max;
+  const stack = [...matrix];
+  const res = [];
+  while(stack.length) {
+    const next = stack.pop();
+    if(Array.isArray(next)) {
+      stack.push(...next);
+    }else {
+      res.push(next);
     }
   }
+  return res.reduce((acc, val) => {
+    return (acc > val ? acc : val);
+  }, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -60,13 +68,26 @@ For example:
 return: 35
 ------------------------------------------------------------------------------------------------ */
 const totalSum = (matrix) => {
-  // Solution code here...
-  let newArray = [];
-  for(let i = 0; i < matrix.length; i++){
-    newArray.push(matrix[i].reduce((a, b) => a + b, 0));
+  const stack = [...matrix];
+  const res = [];
+  while(stack.length) {
+    const next = stack.pop();
+    if(Array.isArray(next)) {
+      stack.push(...next);
+    }else {
+      res.push(next);
+    }
   }
-  return newArray.reduce((a,b) => a + b, 0);
+  return res.reduce((acc, val) => {
+    return acc + val;
+  },0);
 };
+//   // Solution code here...
+//   let newArray = [];
+//   for(let i = 0; i < matrix.length; i++){
+//     newArray.push(matrix[i].reduce((a, b) => a + b, 0));
+//   }
+//   return newArray.reduce((a,b) => a + b, 0);
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -92,21 +113,19 @@ const cookieStores = [firstPike, seaTac, seattleCenter, capHill, alkiBeach];
 
 const grandTotal = (stores) => {
   // Solution code here...
-  let anotherArray = [];
-  let newArray = [];
-  for(let i=0; i < hoursOpen.length; i++){
-    let sums =0;
-    for(let j =0; j < stores.length; j++) {
-      sums += stores[j][i];
-      newArray.push(sums);
+  const Array = []; 
+  for(let i =0; i < hoursOpen.length; i++){
+    let hourTotal = 0; 
+    for(let j =0; j < stores.length; j++){
+      let thisStore = stores[j];
+      let hours = thisStore[i]; 
+      hourTotal += hours; 
     }
+    Array.push(hourTotal);
   }
-  for(let i = 0; newArray.length; i + 5) {
-    anotherArray.push(newArray[i]);
-  }
-  console.log(anotherArray);
-  return anotherArray;
-}; 
+  return Array; 
+};
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -120,6 +139,14 @@ Write a function named salesData that uses forEach to iterate over the hourlySal
 
 const salesData = (hours, data) => {
   // Solution code here...
+  const arrayed = []; 
+  function getHours(hour, cookies) { 
+    return {sales:  `${cookies} cookies`, time: hour}; 
+  }
+  for(let i = 0; i < hours.length; i++){
+    arrayed.push(getHours(hours[i],data[i])); 
+  }
+  return arrayed; 
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -142,10 +169,31 @@ const errands = [
     items: [{ name: 'Cans of food', quantity: 8 }, { name: 'Treats', quantity: 24 }, { name: 'Leash', quantity: 1 }]
   }
 ];
-
 const howManyTreats = (arr) => {
   // Solution code here...
+  let foundYou = 0;
+  for (let i = 0; i < arr.length; i++) {
+    let hunting = arr[i].items;
+    for (let j = 0; j < hunting.length; j++) {
+      let silent = hunting[j];
+      if (silent.name === 'Treats') {
+        foundYou = foundYou + silent.quantity;
+      }
+    }
+  }
+  return foundYou;
 };
+
+// const howManyTreats = (arr) => {
+//   // Solution code here...
+//   const huntingForTreats = arr.find(treat => treat);
+//   const theHunt = huntingForTreats.items;
+//   const hunting = theHunt.find(treat => treat.name);
+//   if(hunting.name = 'Treats') {
+
+//   }
+//   console.log(almostFound);
+// };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
