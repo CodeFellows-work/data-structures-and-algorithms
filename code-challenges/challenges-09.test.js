@@ -74,6 +74,7 @@ HR has asked you to change the data to make it easier to print so that it looks 
 const updateNumbers = (obj) => {
   // Solution code here...
 
+
   const names = Object.keys(obj);
   const numbers = Object.values(obj);
   const updateArray =[];
@@ -82,7 +83,13 @@ const updateNumbers = (obj) => {
   }
   return updateArray;
 
-};
+// =======
+//   let updatedNumbers = Object.keys(obj).map(function (key) {
+//     return [String(key), obj[key]];
+//   })
+// ;return updatedNumbers;
+// >>>>>>> main
+// };
 
 
 
