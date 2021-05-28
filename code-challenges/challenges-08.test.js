@@ -97,12 +97,7 @@ For example:
 
 const isNum = (input) => {
   // Solution code here...
-  let newInput = input;
-  if(newInput.match(/\d/)){
-    return true;
-  } else{
-    return false;
-  }
+  return /[0-9]/.test(input);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -129,17 +124,27 @@ Write a function named isCapitalized that takes in a string. This function shoul
 Return an array containing all the matches.
 ------------------------------------------------------------------------------------------------ */
 
+// const isCapitalized = (str) => {
+//   // Solution code here...
+//   let newArray = [];
+//   let arrayedWords = str.split(' ');
+//   for(let i = 0; i < arrayedWords.length; i++){
+//   if(/\b[A-Z].*?\b/g.match(arrayedWords[i]){
+//     newArray.push(arrayedWords[i])
+//   });
+//   }
+//   return newArray;
+
+// };
 const isCapitalized = (str) => {
   // Solution code here...
-  let splitted = str.split(' ');
-  let newArray = [];
-  for(let i =0; i < splitted.length; i++){
-    if (splitted[i].match(/[A-Z]\w+/)) {
-      newArray.push(splitted[i]);
-    }
-  }
-  console.log(newArray);
-  return newArray;
+  const localArray = [];
+  let matched = str.matchAll(/\b[A-Z].*?\b/g);
+  matched = Array.from(matched);
+  matched.forEach(item => {
+    localArray.push(item[0]);
+  });
+  return localArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -150,6 +155,15 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 
 const citiesAtoJ = (arr) => {
   // Solution code here...
+  const arrayed = [];
+  let key = /^[A-J][a-z]*/;
+  //console.log(arrayed.push(cities));
+  for(let i =0; i<arr.length; i++) {
+    if(key.test(arr[i])) {
+      arrayed.push(arr[i]);
+    }
+  }
+  return arrayed;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -166,7 +180,8 @@ Do not use the vertical bar (pipe) in your pattern.
 
 const matchMonth = (input) => {
   // Solution code here...
-};
+
+}; 
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 8 - Stretch Goal
