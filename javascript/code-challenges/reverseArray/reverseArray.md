@@ -18,7 +18,9 @@ A solution that I can think of right off the top of my head is to create another
 The solution will be done through a for loop. For the solution I will have the given array with whatever length. I will have another new array that is empty for the time being. I will have a for loop that will decrement instead of increment. I will push each of the looped original array, into the new array that I created to make a reversed array. 
 
 ### _bigO_ ###
-
+time complexity: linear time 
+    as the given array increases, there will also be an increase in run time
+    therefore, this solution is O(n) 
 
 ### _Pseudo Code_ ###
 // INPUT ordered array or given array 
@@ -32,10 +34,12 @@ push to new_array
 return new_array 
 
 ### _Code_ ###
+// in JavaScript 
+
 const numArray = [1,2,3,4,5]; 
-const newArray = []; 
 
 const reverseArray = () => {
+    const newArray = []; 
     for(let i = numArray.length -1; i > -1; i--){
         newArray.push(numArray[i]);
     }
@@ -43,5 +47,9 @@ const reverseArray = () => {
 }
 
 ### _Test_ ###  
+- A very large array 
+- One value in an array 
+- negative integers 
+- non integers 
 
 
