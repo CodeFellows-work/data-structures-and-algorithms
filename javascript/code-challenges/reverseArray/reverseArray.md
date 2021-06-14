@@ -11,7 +11,7 @@ In other words, I would like to reverse an array to have the last index become t
 
 ### _Visual_ ### 
 A solution that I can think of right off the top of my head is to create another array, and index the original array in a decrementing pattern-  starting from the last index. Each index will then push into the new array. With that, the new array will result with a reversed order from the original array. 
-![whiteboarding](../ReversedArray.png)
+![whiteboarding](..../ReversedArray.png)
 
 
 ### _Algorithim_ ###
