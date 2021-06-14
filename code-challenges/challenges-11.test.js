@@ -37,16 +37,15 @@ For example, count(5, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]]) returns 4.
 
 const count = (target, input) => {
   // Solution code here...
-  let newArray = [];
-
-  for(let i =0; i<input.length; i++){
-    newArray.push(input[i].filter(x => x ===target));
-    // .split('').join(',').split(''));
-    // newArray[length].filter(x => x===['']);
+  let counter = 0;
+  for(let i =0; i < input.length; i++){
+    for(let j=0; j< input[i].length; j++){
+      if(input[i][j] === target){
+        counter = counter + 1;
+      }
+    }
   }
-  let results =  newArray.filter(x => x.length).join(',').split('');
-  // const countResults = (results, val) => results.reduce((a,v) => (v === val ? a + 1 : a), 0);
- console.log(results);
+  return counter;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -61,7 +60,15 @@ For example, [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]] returns 66.
 
 const totalSum = (input) => {
   // Solution code here...
+  let newOne = input.flat();
+  let finalTotal = 0;
+  for( let i = 0; i < newOne.length; i++) {
+    finalTotal = finalTotal + newOne[i];
+  }
+  return finalTotal;
 };
+
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
