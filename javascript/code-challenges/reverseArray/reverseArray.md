@@ -18,7 +18,7 @@ A solution that I can think of right off the top of my head is to create another
 The solution will be done through a for loop. For the solution I will have the given array with whatever length. I will have another new array that is empty for the time being. I will have a for loop that will decrement instead of increment. I will push each of the looped original array, into the new array that I created to make a reversed array. 
 
 ### _bigO_ ###
-BigO notation more information: https://www.youtube.com/watch?v=D6xkbGLQesk&t=5s
+
 
 ### _Pseudo Code_ ###
 // INPUT ordered array or given array 
