@@ -16,3 +16,4 @@ Each day, you'll add one new file to this folder to do your work for the day's a
 # Code Challenges # 
 
 [reverse Array](./javascript/code-challenges/reverseArray/reverseArray.md)
+[Array shift](./javascript/code-challenges/array-shift/array-shift.md)
