@@ -18,7 +18,7 @@ For instance:
 The thought process I went through was to utilize two arrays, and three for loops. Firstly, we will determine the center index point within the given array. To do this, we simply divide by 2 and remember the length -1 to account for the 0 in the array index. Then we store that value to use in our for loops. The first for loop will be to get all the numbers from the center point index that we just calculated and then push it into another array. Now we can use another for loop to pop or delete the numbers that are beyond the center point. From here, we can push the given number to put into our array's center index. Then we will use the last for loop to push the new array items back into the old array.
 
 ## Approach & Efficiency
-          ### _Pseudo Code_ ###
+### _Pseudo Code_ ###
 
           given_array = [1,2,3,4,5...]
           new_array = []
@@ -37,7 +37,7 @@ The thought process I went through was to utilize two arrays, and three for loop
               given_array.push(new_array[index])
               }
           }
-          ### _Code_ ###
+  ### _Code_ ###
 
           In JavaScript: 
 
