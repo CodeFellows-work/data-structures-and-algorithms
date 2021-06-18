@@ -15,5 +15,7 @@ Each day, you'll add one new file to this folder to do your work for the day's a
 - Please follow the instructions specific to your 401 language, which can be found in the directory below, matching your course.
 # Code Challenges # 
 
-[reverse Array](./javascript/code-challenges/reverseArray/reverseArray.md)
+[Reverse Array](./javascript/code-challenges/reverseArray/reverseArray.md)
 [Array shift](./javascript/code-challenges/array-shift/array-shift.md)
+[Array-binary-search](./javascript/code-challenges/array-binary-search/array-binary-search.md)
+[Linked List](./javascript/code-challenges/linked-list/LinkedList.md)
