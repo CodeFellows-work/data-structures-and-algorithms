@@ -40,7 +40,51 @@ class LinkedList {
     let statement = (string + 'NULL');
     return statement;
   }
+  append(value) {
+    const appendNode = new Node(value);
+    if(!this.head) {
+      this.head = appendNode;
+      return;
+    }
+    let currentNode = this.head;
+    while(currentNode.next) {
+      currentNode = currentNode.next;
+    }
+    currentNode.next=appendNode;
+  }
+  insertBefore(value, newVal) {
+    let currentNode = this.head;
+    let newNode = new Node(newVal, null); 
+
+    if(currentNode.value === value) {
+      newNode.next = currentNode;
+      this.head = newNode;
+      return;
+    }
+    while(currentNode.next) { 
+      if(currentNode.next.value === value) {
+        newNode.next = currentNode.next;
+        currentNode.next = newNode;
+        break;
+      }
+      currentNode = currentNode.next; 
+    }
+  }
+  insertAfter(value, newVal) {
+    let currentNode = this.head;
+    let newNode = new Node(newVal, null);
+
+    while(currentNode){
+      if(currentNode.value === value){
+        newNode.next = currentNode.next;
+        currentNode.next = newNode;
+        break;
+      }
+      currentNode = currentNode.next;
+    }
+  }
 }
+
 
 
 // const list = new LinkedList();
