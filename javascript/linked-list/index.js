@@ -54,7 +54,7 @@ class LinkedList {
   }
   insertBefore(value, newVal) {
     let currentNode = this.head;
-    let newNode = new Node(newVal, null); 
+    let newNode = new Node(newVal, null);
 
     if(currentNode.value === value) {
       newNode.next = currentNode;
@@ -81,6 +81,26 @@ class LinkedList {
         break;
       }
       currentNode = currentNode.next;
+    }
+  }
+  kthFromTheEnd(k) {
+    let currentNode = this.head;
+    let length = 0;
+
+    while(currentNode) {
+      length ++;
+      currentNode = currentNode.next;
+    }
+    let kposition = length -k;
+    if(length <= k || k< 0 || kposition === 0) {
+      return 'notNode';
+    }
+    if(length > k) {
+      let current = this.head;
+      for(let i=1; i<kposition;i++){
+        current = current.next;
+      }
+      return current.value;
     }
   }
 }
