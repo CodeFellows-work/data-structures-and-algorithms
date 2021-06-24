@@ -55,14 +55,14 @@ describe('Linked List', () => {
     expect(linkedlist.kthFromTheEnd(1)).toStrictEqual('b'); //in the middle of the list
     expect(linkedlist.kthFromTheEnd(0)).toStrictEqual('a'); //last in the list
     expect(linkedlist.kthFromTheEnd(2)).toStrictEqual('c'); //first on the list
-    expect(linkedlist.kthFromTheEnd(4)).toStrictEqual('notNode'); //exceeds node length
-    expect(linkedlist.kthFromTheEnd(-1)).toStrictEqual('notNode'); //negative number
-    expect(linkedlist.kthFromTheEnd(3)).toStrictEqual('notNode'); //length of the linked list
+    expect(linkedlist.kthFromTheEnd(4)).toStrictEqual('Exception'); //exceeds node length
+    expect(linkedlist.kthFromTheEnd(-1)).toStrictEqual('Exception'); //negative number
+    expect(linkedlist.kthFromTheEnd(3)).toStrictEqual('Exception'); //length of the linked list
   });
   it('Testing kth position but Linked list size of 1', () => {
     const linkedlist = new LinkedList();
     linkedlist.insert('a');
     expect(linkedlist.kthFromTheEnd(0)).toStrictEqual('a');
-    expect(linkedlist.kthFromTheEnd(1)).toStrictEqual('notNode');
+    expect(linkedlist.kthFromTheEnd(1)).toStrictEqual('Exception');
   });
 });

@@ -93,7 +93,7 @@ class LinkedList {
     }
     let kposition = length -k;
     if(length <= k || k< 0 || kposition === 0) {
-      return 'notNode';
+      return 'Exception';
     }
     if(length > k) {
       let current = this.head;
