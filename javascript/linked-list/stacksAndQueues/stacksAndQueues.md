@@ -54,6 +54,6 @@ For Dequeue, just like I did with the stack, I will assign a temp varibale to th
 All of the solutions will be in O(1) or constant time - this is not a growing list, nor will there be deviating steps that will cause a linear time, or O(N) as well as O(n2). 
 
 Enqueue: 
-![Enqueue]('./enqueue.jpg')
-![Dequeue]('./dequeue.jpg')
+![Enqueue](./enqueue.jpg)
+![Dequeue](./dequeue.jpg)
 
