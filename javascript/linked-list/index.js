@@ -103,6 +103,24 @@ class LinkedList {
       return current.value;
     }
   }
+  ziplists(list1, list2) {
+    let currentNodeOne = list1;
+    let currentNodeTwo = list2; 
+    let nextNodeOne;
+    let nextNodeTwo; 
+
+    while(currentNodeOne && currentNodeTwo) {
+      nextNodeOne = currentNodeOne.next;
+      nextNodeTwo = currentNodeTwo.next; 
+
+      currentNodeTwo.next = nextNodeOne;
+      currentNodeOne.next = nextNodeTwo; 
+
+      currentNodeOne = nextNodeOne; 
+      currentNodeTwo = nextNodeTwo;
+    }
+    list2 = currentNodeTwo;
+    return list2;
 }
 
 
