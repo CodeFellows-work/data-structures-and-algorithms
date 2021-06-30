@@ -2,7 +2,8 @@
 
 const Queue = require('../queue.js');
 const Stack = require('../stacks.js');
-// const Queue = require('../queue.js'); 
+// const Queue = require('../queue.js');
+const AnimalShelter = require('../animal-shelter.js');
 
 
 describe('Stacks and Queues', () => {
@@ -119,5 +120,24 @@ describe('Stacks and Queues', () => {
     const queue = new Queue();
     let queueResults = queue.peek();
     expect(queueResults).toStrictEqual('this is empty');
-  })
+  });
+  it('test enqueue animal', () => {
+    const animalQueue = new AnimalShelter();
+    animalQueue.enqueue('dog');
+    animalQueue.enqueue('cat');
+    let queueResults = JSON.stringify(animalQueue);
+    expect(queueResults).toStrictEqual("{\"front\":{\"value\":\"dog\",\"next\":{\"value\":\"cat\",\"next\":null}},\"rear\":{\"value\":\"cat\",\"next\":null}}");
+  });
+  it('test dequeue animal return animal', () => {
+    const animalQueue = new AnimalShelter();
+    animalQueue.enqueue('dog');
+    let queueResults = animalQueue.dequeue('dog');
+    expect(queueResults).toStrictEqual('dog');
+  });
+  it('test dequeue animal return null if pref is not dog or cat', () => {
+    const animalQueue = new AnimalShelter();
+    animalQueue.enqueue('dog');
+    let queueResults = animalQueue.dequeue('monkey');
+    expect(queueResults).toStrictEqual(null);
+  });
 });
