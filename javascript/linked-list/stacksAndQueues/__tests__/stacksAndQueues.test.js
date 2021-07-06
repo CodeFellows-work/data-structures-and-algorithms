@@ -4,7 +4,7 @@ const Queue = require('../queue.js');
 const Stack = require('../stacks.js');
 // const Queue = require('../queue.js');
 const AnimalShelter = require('../animal-shelter.js');
-
+const PseudoQueue = require('../psuedoQueue.js');
 
 describe('Stacks and Queues', () => {
   it('works', () => {
@@ -139,5 +139,21 @@ describe('Stacks and Queues', () => {
     animalQueue.enqueue('dog');
     let queueResults = animalQueue.dequeue('monkey');
     expect(queueResults).toStrictEqual(null);
+  });
+  it('test pseudo queue insert value into pseudoQueue FIFO', () => {
+    const pseudoQueue = new PseudoQueue();
+    pseudoQueue.enqueue('a');
+    pseudoQueue.enqueue('b');
+    pseudoQueue.enqueue('c');
+    let pseudoResults = JSON.stringify(pseudoQueue);
+    expect(pseudoResults).toStrictEqual("{\"front\":{\"value\":\"a\",\"next\":{\"value\":\"b\",\"next\":{\"value\":\"c\",\"next\":null}}},\"rear\":{\"value\":\"c\",\"next\":null}}");
+  });
+  it('test for pseudoQueue dequeue', () => {
+    const pseudoQueue = new PseudoQueue();
+    pseudoQueue.enqueue('a');
+    pseudoQueue.enqueue('b');
+    pseudoQueue.enqueue('c');
+    let pseudoResults = pseudoQueue.dequeue();
+    expect(pseudoResults).toStrictEqual("a");
   });
 });
