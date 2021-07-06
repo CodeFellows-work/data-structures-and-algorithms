@@ -5,6 +5,7 @@ const Stack = require('../stacks.js');
 // const Queue = require('../queue.js');
 const AnimalShelter = require('../animal-shelter.js');
 const PseudoQueue = require('../psuedoQueue.js');
+const validateBrackets = require('../stack-queue-brackets/stackbrackets.js');
 
 describe('Stacks and Queues', () => {
   it('works', () => {
@@ -155,5 +156,21 @@ describe('Stacks and Queues', () => {
     pseudoQueue.enqueue('c');
     let pseudoResults = pseudoQueue.dequeue();
     expect(pseudoResults).toStrictEqual("a");
+  });
+  it('test for bracket matching', () => {
+    validateBrackets('[]');
+    expect(validateBrackets).toBeTruthy;
+  });
+  it('test for brackets match with bigger bracket complexity', () => {
+    validateBrackets('{[({[()]})]}');
+    expect(validateBrackets).toBeTruthy;
+  });
+  it('test for no match brackets', () => {
+    validateBrackets('{');
+    expect(validateBrackets) === false;
+  });
+  it('test for no match brackets with bigger complexity', () => {
+    validateBrackets('{]])({}[}}');
+    expect(validateBrackets) === false;
   });
 });
