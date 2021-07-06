@@ -86,6 +86,17 @@ class BinarySearch {
       }
     };
   }
+  findMax(){
+    if(this.root === null){
+      return 'empty tree';
+    }
+    let currentNode = this.root;
+
+    while(currentNode.right !== null){
+      currentNode = currentNode.right;
+    }
+    return currentNode.value;
+  }
 }
 
 
