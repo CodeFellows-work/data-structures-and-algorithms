@@ -1,6 +1,6 @@
 'use strict';
 
-const {Node} = require('../trees.js');
+const {Node, BinaryTree} = require('../trees.js');
 const {BinarySearch} = require('../trees.js');
 
 describe('trees', () => {
@@ -22,6 +22,14 @@ describe('trees', () => {
     bt.root.right = new Node(3);
     bt.root.left.left = new Node(4);
     console.log(bt.contains(4));
+  });
+  it('tests max value', () => {
+    const bt = new BinarySearch();
+    bt.root = new Node(1);
+    bt.root.left = new Node(2);
+    bt.root.right = new Node(3);
+    console.log(bt.findMax());
+    expect(bt.findMax()).toStrictEqual(3);
   });
 });
 
