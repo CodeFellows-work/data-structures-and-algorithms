@@ -16,4 +16,4 @@ this method utilized from the stacks.js will extract a value from the pseudo que
 
 this will have a constant time or O(1);
 
-[Visual](./pseudoQueue.jpg)
+![Visual](./pseudoQueue.jpg)
