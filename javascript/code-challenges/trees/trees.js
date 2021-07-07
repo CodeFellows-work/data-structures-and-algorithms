@@ -98,6 +98,40 @@ class BinarySearch {
     return currentNode.value;
   }
 }
+class BreadthFirstSearch {
+  constructor() {
+    this.root = null;
+  }
+
+  breadthFirst(tree) {
+    if(tree === null){
+      console.log('empty tree');
+    }
+
+    let newArray = [tree];
+    let newArrayTwo = [];
+
+    console.log(newArray);
+
+    while(newArray.length > 0){
+      let node = newArray.shift();
+      let value = node.value;
+      newArray.push(value);
 
 
-module.exports = {BinaryTree, BinarySearch, Node};
+      if(node.left === null && node.right === null){
+        continue;
+      }
+      if(node.left !== null){
+        newArray.push(node.left);
+      }
+      if(node.right !== null){
+        newArray.push(node.right);
+      }
+    }
+    return newArrayTwo;
+  }
+}
+
+
+module.exports = {BreadthFirstSearch, BinaryTree, BinarySearch, Node};
