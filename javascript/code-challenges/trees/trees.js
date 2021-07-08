@@ -45,6 +45,33 @@ class BinaryTree {
     };
     walk(this.root);
   }
+  fizzBuzz() {
+    const newArray = [];
+    const walk = (node) => {
+      newArray.push(node.value);
+
+      if(node.left && node.left.value % 3 === 0){
+        node.value = 'fizz';
+        walk(node.left);
+      } else if(node.left && node.left.value % 5 === 0) {
+        node.value = 'buzz';
+        walk(node.left);
+      } else if(node.value % 3 === 0 && node.value % 5 === 0) {
+        node.value = 'fizzbuzz';
+        walk(node.left);
+      }else{
+        walk(node.left);
+      }
+      if(node.right){
+        walk(node.right);
+        if(node.value % 3 === 0) {node.value = 'fizz';}
+        else if(node.value % 5 == 0) {node.value = 'buzz';}
+        if(node.value % 3=== 0 && node.value % 5 === 0) {node.value = 'fizzbuzz';}
+      }
+    };
+    walk(this.root);
+    return newArray;
+  }
 }
 class BinarySearch {
   constructor() {
