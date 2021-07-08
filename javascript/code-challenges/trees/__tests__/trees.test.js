@@ -1,5 +1,6 @@
 'use strict';
 
+const { root } = require('cheerio');
 const {Node, BinaryTree} = require('../trees.js');
 const {BinarySearch} = require('../trees.js');
 const {BreadthFirstSearch} = require('../trees.js');
@@ -29,7 +30,6 @@ describe('trees', () => {
     bt.root = new Node(1);
     bt.root.left = new Node(2);
     bt.root.right = new Node(3);
-    console.log(bt.findMax());
     expect(bt.findMax()).toStrictEqual(3);
   });
   it.skip('test breadth first output', () => {
@@ -46,8 +46,17 @@ describe('trees', () => {
     bt.root.left.right.right = new Node(11);
     bt.root.right.right.left = new Node(4);
 
-    console.log(bt);
     bfs.breadthFirst(bt);
+  });
+  it('tests fizzbuzz tree', () => {
+    const bt = new BinaryTree();
+    bt.root = new Node(1);
+    bt.root.left = new Node(3);
+    bt.root.right = new Node(5);
+    bt.root.left.left = new Node(9);
+    bt.root.left.right = new Node(7);
+
+    console.log(bt.fizzBuzz());
   });
 });
 
