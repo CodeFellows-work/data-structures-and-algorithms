@@ -60,8 +60,8 @@ class HashTable {
 
   // get a key, look up the value in our hash table and return.
   get(key) {
-    const index = this.hash(key);
-    return this.table[index];
+    let hash = this.hash(key);
+    return this.buckets[hash] ? this.buckets[hash].head.value : null ;
   }
 
   // returns a boolean whether the key exists
@@ -72,4 +72,4 @@ class HashTable {
   }
 }
 
-
+module.exports = HashTable;
