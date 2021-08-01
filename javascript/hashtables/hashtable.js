@@ -1,5 +1,7 @@
 'use strict';
 
+const { Hash } = require('crypto');
+
 class Node {
   constructor(value) {
     this.value = value;
@@ -37,7 +39,7 @@ class HashTable {
   }
 
   hash(key) {
-    let arrayOfCharacters = key.split(''); 
+    let arrayOfCharacters = key.split('');
     let sumOfAsciiValues = arrayOfCharacters.reduce((acc, char) => {
       return acc + char.charCodeAt(0);
     }, 0);
@@ -70,6 +72,27 @@ class HashTable {
 
     return this.buckets[hash] ? true : false;
   }
+
+  // returns the repeated word
+  repeatedWord(words) {
+    const hashmap = new HashTable(100);
+    let word =
+    {
+      word: words.split(' '),
+      count: 0
+    };
+
+    for(let i =0; i< word.word.length; i++){
+      hashmap.add(`${i}`, word.word[i]);
+      for(let j= word.word.length; j > 0; j--){
+        if(hashmap.get(`${i}`)[`${i}`] === word.word[j]){
+          return word.word[j];
+        }
+      }
+    }
+  }
 }
+
+
 
 module.exports = HashTable;
