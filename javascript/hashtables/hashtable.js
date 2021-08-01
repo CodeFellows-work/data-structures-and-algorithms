@@ -1,6 +1,7 @@
 'use strict';
 
-const { Hash } = require('crypto');
+
+
 
 class Node {
   constructor(value) {
@@ -29,6 +30,22 @@ class LinkedList {
     }
     // current is null, how do we add to the list.
     previous.next = new Node(value);
+  }
+}
+class BinaryTree {
+  constructor(bt) {
+    this.root = bt.root;
+  }
+  postOrder() {
+    let btArray = [];
+
+    const walk = (node) => {
+      if(node.left){ walk(node.left); }
+      if(node.right){ walk(node.right); }
+      btArray.push(node.value);
+    };
+    walk(this.root);
+    return btArray;
   }
 }
 
@@ -90,6 +107,26 @@ class HashTable {
         }
       }
     }
+  }
+  treeIntersection(bt1, bt2){
+    const hashmap = new HashTable(100);
+    let passedTree1 = new BinaryTree(bt1);
+    let passedTree2 = new BinaryTree(bt2);
+    let bt1Array =[];
+    let bt2Array =[];
+    let returnedArray=[];
+
+    bt1Array = passedTree1.postOrder();
+    bt2Array = passedTree2.postOrder();
+
+
+    for(let i =0; i< bt1Array.length; i++){
+      hashmap.add(`${i}`, bt1Array[i]);
+      if(hashmap.get(`${i}`)[`${i}`] === bt2Array[i]){
+        returnedArray.push(bt2Array[i]);
+      }
+    }
+    return returnedArray.sort();
   }
 }
 
