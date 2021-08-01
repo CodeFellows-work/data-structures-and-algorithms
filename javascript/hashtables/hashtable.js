@@ -128,6 +128,17 @@ class HashTable {
     }
     return returnedArray.sort();
   }
+
+  leftJoin(hm1, hm2){
+    let valuesArray = [];
+
+    hm1.buckets.forEach((values, index) => {
+      let theKey = values.head.value;
+      valuesArray.push(Object.keys(theKey));
+    });
+    console.log(valuesArray);
+
+  }
 }
 
 

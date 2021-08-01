@@ -5,6 +5,8 @@
 const HashTable = require('../hashtable.js');
 const { Node, BinaryTree } = require('../../code-challenges/trees/trees.js');
 
+
+
 describe('testing hashtable methods', () => {
   it('testing the add method', ()=> {
     let table = new HashTable(1);
@@ -125,5 +127,25 @@ describe('testing hashtable methods', () => {
     expect(hashmap.treeIntersection(bt1, bt2)).toEqual([
       10,10,10
     ]);
+  });
+  it('testing synonym and antonym hashtables', () => {
+    let hashmap = new HashTable(20);
+    let table1 = new HashTable(20);
+    let table2 = new HashTable(20);
+
+    table1.add('fond', 'enamored');
+    table1.add('wrath', 'anger');
+    table1.add('diligent', 'employed');
+    table1.add('outfit', 'garb');
+    table1.add('guide', 'usher');
+
+    table2.add('fond', 'averse');
+    table2.add('wrath', 'delight');
+    table2.add('diligent', 'idle');
+    table2.add('guide', 'follow');
+    table2.add('flow', 'jam');
+
+    hashmap.leftJoin(table1, table2);
+
   });
 });
