@@ -1,35 +1,6 @@
-# Hashtables
-A hash table is a data structure that is used to store keys/value pairs. 
+# Tree intersection
 
-## Challenge
+Please refer to the Miro Board for visuals
 
-* ### add
-Arguments: key, value
+[Miro Board](https://miro.com/welcomeonboard/Z0JuQ3VUTHB4RWVhRlQyS0ZCQlF0SUp4SnNaNUVNTHJsN0tjZFJ2Qm5IdFdXcTIzSFN5d29weW1oM0hpTVdaeXwzMDc0NDU3MzYxOTg0MjE0MDc4)
 
-Returns: nothing
-
-This method should hash the key, and add the key and value pair to the table, handling collisions as needed.
-
-
-* ### get
-Arguments: key
-
-Returns: Value associated with that key in the table
-
-
-* ### contains
-Arguments: key
-
-Returns: Boolean, indicating if the key exists in the table already.
-
-
-* ### hash
-Arguments: key
-
-Returns: Index in the collection for that key
-
-## Approach & Efficiency
-<!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
-
-## API
-<!-- Description of each method publicly available in each of your hashtable -->
