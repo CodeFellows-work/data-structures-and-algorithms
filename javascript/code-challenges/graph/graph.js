@@ -78,7 +78,9 @@ class Graph {
     console.log('visited nodes', visitedNodes);
     return visitedNodes;
   }
-
+  businessTrip(graph, cityNameArray){
+    
+  } 
 }
 
 
