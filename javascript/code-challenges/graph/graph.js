@@ -26,17 +26,6 @@ class Graph {
     return vertex;
   }
 
-  addEdgeUndirected(startVertex, endVertex, weight = 0){
-    // if(!this.adjacencyList.has(startVertex) || !this.adjacencyList.has(endVertex)) {
-    //   throw Error('Invalid Vertices');
-    // }
-
-    let edgesArrayOneWay = this.adjacencyList.get(startVertex);
-    edgesArrayOneWay.push(new Edge(endVertex, weight));
-    let edgesArrayOtherWay = this.adjacencyList.get(endVertex);
-    edgesArrayOtherWay.push(new Edge(startVertex, weight));
-  }
-
   addDirectedEdge(startVertex, endVertex, weight = 0) {
     if(!this.adjacencyList.has(startVertex) || !this.adjacencyList.has(endVertex)) {
       throw Error('Invalid Vertices');
@@ -70,10 +59,8 @@ class Graph {
     while(queue.length) {
       // take from the top of the queue while the queue had Nodes.
       const current = queue.shift();
-      console.log(current);
       // get the neighbors from the adjacency list
       const neighbors = this.getNeighbors(current);
-
       // iterate through the neighbors
       for (let neighbor of neighbors) {
         let neighborNode = neighbor.vertex;
@@ -88,7 +75,7 @@ class Graph {
         }
       }
     }
-    console.log(visitedNodes);
+    console.log('visited nodes', visitedNodes);
     return visitedNodes;
   }
 
