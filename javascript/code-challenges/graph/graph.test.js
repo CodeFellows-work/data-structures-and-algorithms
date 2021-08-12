@@ -2,7 +2,7 @@
 
 
 const Graph = require('../graph/graph.js');
-
+const graphBFS = require('./graphBFS.js');
 
 describe('testing graph implementatations', () => {
 
@@ -13,24 +13,6 @@ describe('testing graph implementatations', () => {
     expect(a).toBeTruthy;
   });
 
-  it('testing undirected edge', () => {
-    let graph = new Graph();
-
-    let a = graph.addVertex('A');
-    let b = graph.addVertex('B');
-    let c = graph.addVertex('C');
-    let d = graph.addVertex('D');
-
-    graph.addEdgeUndirected(a ,b);
-    graph.addEdgeUndirected(a ,c);
-    graph.addEdgeUndirected(c ,d);
-    graph.addEdgeUndirected(d ,b);
-
-    console.log(graph.breadthFirst('A'));
-
-  });
-
-  
   it('testing directed edge', () => {
     let graph = new Graph();
 
@@ -45,6 +27,22 @@ describe('testing graph implementatations', () => {
     graph.addDirectedEdge(d, a);
 
     console.log(graph.adjacencyList);
+  });
+  it('testing breadth first traversal', () => {
+    let graph = new Graph();
+
+    let a = graph.addVertex('A');
+    let b = graph.addVertex('B');
+    let c = graph.addVertex('C');
+    let d = graph.addVertex('D');
+
+    graph.addDirectedEdge(a, b);
+    graph.addDirectedEdge(b, c);
+    graph.addDirectedEdge(c, d);
+    graph.addDirectedEdge(d, a);
+
+    console.log('breadthFirst', graph.breadthFirst(a));
+    expect(graph.breadthFirst(a));
   });
 
 });

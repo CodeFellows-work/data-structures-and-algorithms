@@ -1,4 +1,4 @@
-'use strict'; 
+'use strict';
 
 class Node {
   constructor(value, next){
@@ -121,9 +121,9 @@ class LinkedList {
     }
     list2 = currentNodeTwo;
     return list2;
+  }
+
 }
-
-
 
 // const list = new LinkedList();
 
