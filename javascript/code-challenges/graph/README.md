@@ -1,0 +1,3 @@
+Whiteboarding
+
+![BusinessTrip](./businessTrip.png)
